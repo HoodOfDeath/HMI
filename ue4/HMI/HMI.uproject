@@ -1,0 +1,13 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{F0FDED83-4891-9A60-273A-8A9570FDD786}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "HMI",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

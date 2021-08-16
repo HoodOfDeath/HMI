@@ -17,3 +17,5 @@ Every element, except speedometer itself, changes it's state with period of seve
 Project follows naming/project hierarchy convention from: https://github.com/Allar/ue5-style-guide#anc-ui
 
 Project follows coding standard from: https://docs.unrealengine.com/4.26/en-US/ProductionPipelines/DevelopmentSetup/CodingStandard/
+
+Project have been created with Unreal Engine 4 that was compiled  from source code from version 4.25, and should be compatible with engine downloaded from launcher.

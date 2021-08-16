@@ -4,25 +4,6 @@
 #include "RadialProgressBar.h"
 #include "Components/Image.h"
 
-URadialProgressBar::URadialProgressBar(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
-{
-}
-
-void URadialProgressBar::NativeTick(const FGeometry& MovieSceneBlends, float InDeltaTime)
-{
-	Super::NativeTick(MovieSceneBlends, InDeltaTime);
-
-	static float Time = 0;
-	Time+=(InDeltaTime / 5);
-
-	Percent = FMath::Abs(FMath::Sin(Time));
-	
-	if (MaterialInstanceDynamic.IsValid())
-	{
-		MaterialInstanceDynamic->SetScalarParameterValue("Percent", Percent);
-	}
-}
-
 void URadialProgressBar::NativePreConstruct()
 {
 	Super::NativePreConstruct();
@@ -38,3 +19,22 @@ void URadialProgressBar::NativePreConstruct()
 		}
 	}
 }
+
+
+void URadialProgressBar::NativeTick(const FGeometry& MovieSceneBlends, float InDeltaTime)
+{
+	Super::NativeTick(MovieSceneBlends, InDeltaTime);
+	
+#if TESTING
+	static float Time = Percent;
+	Time+=(InDeltaTime / 5);
+
+	Percent = FMath::Abs(FMath::Sin(Time));
+#endif
+	
+	if (MaterialInstanceDynamic.IsValid())
+	{
+		MaterialInstanceDynamic->SetScalarParameterValue("Percent", Percent);
+	}
+}
+

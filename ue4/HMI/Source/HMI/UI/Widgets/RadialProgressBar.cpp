@@ -23,9 +23,9 @@ void URadialProgressBar::NativeTick(const FGeometry& MovieSceneBlends, float InD
 	}
 }
 
-void URadialProgressBar::NativeConstruct()
+void URadialProgressBar::NativePreConstruct()
 {
-	Super::NativeConstruct();
+	Super::NativePreConstruct();
 
 	if (IsValid(Image_Base))
 	{

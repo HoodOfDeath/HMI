@@ -10,7 +10,7 @@ Main parts are:
 
 2) Preview for media player, that can scroll left and right. Scroll behaviour can be tuned with data in editor.
 
-3) Indicators panels on top. Indicators have 3 states on, off and blinking.
+3) Indicators panels on top. Indicators have 3 states: on, off and blinking.
 
 Every element, except speedometer itself, changes it's state with period of several seconds.
 

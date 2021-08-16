@@ -9,7 +9,7 @@
 #define TESTING true
 
 
-UENUM()
+UENUM(BlueprintType)
 enum class EIndicatorState : uint8
 {
 	Off = 0,
@@ -38,6 +38,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	EIndicatorState CurrentState = EIndicatorState::Off;
 
+	UFUNCTION(BlueprintCallable)
 	void SetState(EIndicatorState NewState);
 
 protected:

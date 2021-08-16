@@ -13,5 +13,7 @@ UCLASS()
 class HMI_API AHMIGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
+	virtual void BeginPlay() override;
 	
 };

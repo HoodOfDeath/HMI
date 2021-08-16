@@ -80,8 +80,9 @@ void ACarousel::BeginPlay()
 	Super::BeginPlay();
 
 	checkf(AnchorPoints.Num() == ELEMENTS_IN_CAROUSEL, TEXT("There must be %d anchor to ACarousel works properly"), ELEMENTS_IN_CAROUSEL)
-	
+
 	RenderTarget->ClearColor = FLinearColor::Transparent;
+	RenderCamera->TextureTarget = RenderTarget;
 	
 	if (IsValid(CarouselItemClass))
 	{

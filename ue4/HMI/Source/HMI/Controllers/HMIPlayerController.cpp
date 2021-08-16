@@ -2,3 +2,13 @@
 
 
 #include "HMIPlayerController.h"
+
+void AHMIPlayerController::BeginPlay()
+{
+	Super::BeginPlay();
+
+	FInputModeUIOnly ModeUIOnly;
+	SetInputMode(ModeUIOnly);
+
+	bShowMouseCursor = true;
+}

@@ -15,4 +15,6 @@ UCLASS()
 class HMI_API AHMIPlayerController : public APlayerController
 {
 	GENERATED_BODY()
+public:
+	virtual void BeginPlay() override;
 };

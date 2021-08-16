@@ -59,19 +59,6 @@ void USwitchImage::SetState(EIndicatorState NewState)
 	CurrentState = NewState;
 }
 
-void USwitchImage::NativeTick(const FGeometry& MovieSceneBlends, float InDeltaTime)
-{
-	Super::NativeTick(MovieSceneBlends, InDeltaTime);
-
-	/*static float Percent;
-	static float Time = 0;
-	Time+=(InDeltaTime / 5);
-
-	Percent = FMath::Abs(FMath::Sin(Time));
-	
-	Switch(Percent > 0.5f);*/
-}
-
 void USwitchImage::NativePreConstruct()
 {
 	Super::NativePreConstruct();
@@ -95,3 +82,19 @@ void USwitchImage::NativePreConstruct()
 
 	SetState(CachedState);
 }
+
+#if TESTING
+void USwitchImage::NativeConstruct()
+{
+	Super::NativeConstruct();
+	
+	SwitchToRandomState();
+	GetWorld()->GetTimerManager().SetTimer(CallSwitchTimer,this, &USwitchImage::SwitchToRandomState, SwitchCallDelay, true);
+}
+
+void USwitchImage::SwitchToRandomState()
+{
+	int State = FMath::RandHelper(3);
+	SetState((EIndicatorState)State);
+}
+#endif

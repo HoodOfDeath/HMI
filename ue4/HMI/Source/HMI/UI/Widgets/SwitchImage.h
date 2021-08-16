@@ -6,6 +6,8 @@
 #include "Blueprint/UserWidget.h"
 #include "SwitchImage.generated.h"
 
+#define TESTING true
+
 
 UENUM()
 enum class EIndicatorState : uint8
@@ -48,8 +50,19 @@ private:
 	FTimerHandle BlinkTimer;
 	
 	bool bIsOn = false;
-	
-	virtual void NativeTick(const FGeometry& MyGeometry, float InDeltaTime) override;
 
 	virtual void NativePreConstruct() override;
+
+	
+#if TESTING
+	//Testing functionality
+
+	FTimerHandle CallSwitchTimer;
+
+	float SwitchCallDelay = 5.0f;
+
+	virtual void NativeConstruct() override;
+	
+	void SwitchToRandomState();
+#endif
 };
